@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ARM," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="HWZ" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="ARMV4 CMP r0,r1        比较r0和r1，r0-r1，并设置标志位  指令条件码  EQ相等 NE不相等 HS无符号大于等于 LO无符号小于 HI无符号大于 LS无符号小于等于 GT大于 LE小于等于 GE大于等于 LT小于 MI为负 PL为正或零 VS溢出 VC无溢出   ADD r0,r1,r2          r0&#x3D;r1+r2  ADC r0,r1,r2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="arm汇编">
+<meta property="og:url" content="https://hhh0hwz.github.io/2019/12/29/arm%E6%B1%87%E7%BC%96/index.html">
+<meta property="og:site_name" content="HWZ">
+<meta property="og:description" content="ARMV4 CMP r0,r1        比较r0和r1，r0-r1，并设置标志位  指令条件码  EQ相等 NE不相等 HS无符号大于等于 LO无符号小于 HI无符号大于 LS无符号小于等于 GT大于 LE小于等于 GE大于等于 LT小于 MI为负 PL为正或零 VS溢出 VC无溢出   ADD r0,r1,r2          r0&#x3D;r1+r2  ADC r0,r1,r2">
+<meta property="article:published_time" content="2019-12-29T11:12:02.000Z">
+<meta property="article:modified_time" content="2019-12-29T12:18:08.000Z">
+<meta property="article:author" content="HWZ">
+<meta property="article:tag" content="ARM">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hhh0hwz.github.io/2019/12/29/arm汇编/"/>
+
+
+
+
+
+  <title>arm汇编 | HWZ</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HWZ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">双木成林</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hhh0hwz.github.io/2019/12/29/arm%E6%B1%87%E7%BC%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HWZ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HWZ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">arm汇编</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-29T19:12:02+08:00">
+                2019-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ARM/" itemprop="url" rel="index">
+                    <span itemprop="name">ARM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ARM"><a href="#ARM" class="headerlink" title="ARM"></a>ARM</h1><h3 id="V4"><a href="#V4" class="headerlink" title="V4"></a>V4</h3><ul>
+<li><p>CMP r0,r1        比较r0和r1，r0-r1，并设置标志位</p>
+</li>
+<li><p>指令条件码</p>
+<ul>
+<li>EQ相等</li>
+<li>NE不相等</li>
+<li>HS无符号大于等于</li>
+<li>LO无符号小于</li>
+<li>HI无符号大于</li>
+<li>LS无符号小于等于</li>
+<li>GT大于</li>
+<li>LE小于等于</li>
+<li>GE大于等于</li>
+<li>LT小于</li>
+<li>MI为负</li>
+<li>PL为正或零</li>
+<li>VS溢出</li>
+<li>VC无溢出</li>
+</ul>
+</li>
+<li><p>ADD r0,r1,r2          r0=r1+r2</p>
+</li>
+<li><p>ADC r0,r1,r2          r0=r1+r2+C</p>
+</li>
+<li><p>SUB\SBC类似</p>
+</li>
+<li><p>RSB/RSC r0,r1,r2   r0=-(r1-r2)</p>
+</li>
+<li><p>AND\ORR\EOR\BIC</p>
+</li>
+<li><p>比较指令  CMP、CMN(r1-(-r2))</p>
+</li>
+<li><p>TST   用AND</p>
+</li>
+<li><p>TEQ  用EOR</p>
+</li>
+<li><p>移位 LSL、ASR、LSR、ROR、RXX</p>
+</li>
+<li><p>MUL r0,r1,r2      r0=r1*r2</p>
+</li>
+<li><p>MLA r0,r1,r2,r3      r0=r1*r2+r3</p>
+</li>
+<li><p>跳转 B{L}{<cond>} label</cond></p>
+</li>
+<li><p>LDR\STR</p>
+<p>地址的块拷贝(1)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loop</span><br><span class="line">	LDR r0,[r8],#4</span><br><span class="line">	STR r0,[r10],#4</span><br><span class="line">	CMP r8,r9</span><br><span class="line">	BLT loop</span><br></pre></td></tr></table></figure>
+<p>批量加载/存储</p>
+<p>​    LDMIA/STMIA     inc after</p>
+<p>​    LDMIB/STMIB     inc before</p>
+<p>​    LDMDA                dec after</p>
+<p>​    LDMDB                 dec before</p>
+</li>
+</ul>
+<p>​      地址的块拷贝(2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loop</span><br><span class="line">	LDMIA r8!,&#123;r0-r7&#125;</span><br><span class="line">	STMIA r10!,&#123;r0-r7&#125;</span><br><span class="line">	CMP r8,r9</span><br><span class="line">	BLT loop</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>SWP指令</p>
+<p>用于在内存和寄存器之间传送一个字节和字的原子操作，先读取内存中数据到Rd，在将Rm中的数据写入到内存中</p>
+</li>
+<li><p>SWI软中断指令</p>
+</li>
+<li><p>程序状态寄存器的访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MSR r0,CPSR</span><br><span class="line">BIC r0,r0,#0x80</span><br><span class="line">MSR CPSR_c,r0   ;f,s,x,c,用户模式只能修改f</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>STMFD/LDMFD 压栈，出栈</p>
+</li>
+</ul>
+<h3 id="V5"><a href="#V5" class="headerlink" title="V5"></a>V5</h3><ul>
+<li><p>CLZ{cond} rd,rm</p>
+<p>返回rm中第一个1之前二进制0的个数</p>
+</li>
+<li><p>饱和运算</p>
+<p>QSUB/QADD</p>
+<p>QDSUB/QDADD</p>
+</li>
+<li><p>加载两个寄存器</p>
+<p>LDR/STR{<cond>}D <Rd>, <addressing_mode></addressing_mode></Rd></cond></p>
+</li>
+</ul>
+<h3 id="V6"><a href="#V6" class="headerlink" title="V6"></a>V6</h3><ul>
+<li><p>REV 字节反转指令</p>
+<p>将一个字内的字节反转</p>
+</li>
+</ul>
+<h3 id="Thumb"><a href="#Thumb" class="headerlink" title="Thumb"></a>Thumb</h3><ul>
+<li>B<cond> label 范围在+-256B</cond></li>
+<li>B label  范围在+-2KB</li>
+<li>BL label 范围在+-4MB</li>
+<li>BX Rd  绝对跳转到Rd中的地址</li>
+</ul>
+<h3 id="Thumb-2"><a href="#Thumb-2" class="headerlink" title="Thumb-2"></a>Thumb-2</h3><ul>
+<li><p>IT指令：使后面的一到四条指令为条件执行</p>
+<p>ITTEE   EQ；IF-Then-Then-Else-Else</p>
+</li>
+</ul>
+<h1 id="伪指令"><a href="#伪指令" class="headerlink" title="伪指令"></a>伪指令</h1><h3 id="段定义"><a href="#段定义" class="headerlink" title="段定义"></a>段定义</h3><p>AREA <name> {,&lt;属性&gt;} {,<READONLY readwrite>}</READONLY></name></p>
+<h3 id="符号定义"><a href="#符号定义" class="headerlink" title="符号定义"></a>符号定义</h3><ul>
+<li><p>定义全局变量</p>
+<ul>
+<li>GBLA 数字变量</li>
+<li>GBLL 逻辑变量</li>
+<li>GBLS 字符串变量</li>
+</ul>
+</li>
+<li><p>定义局部变量</p>
+<ul>
+<li>LCLA</li>
+<li>LCLL</li>
+<li>LCLS</li>
+</ul>
+</li>
+<li><p>变量赋值</p>
+<ul>
+<li><p>SETA</p>
+<p>Test1   SETA   0XAA</p>
+</li>
+<li><p>SETL</p>
+</li>
+<li><p>SETS</p>
+</li>
+</ul>
+</li>
+<li><p>定义寄存器列表</p>
+<p><name>  RLIST &lt;{list}&gt;</name></p>
+</li>
+</ul>
+<h3 id="数据定义伪指令"><a href="#数据定义伪指令" class="headerlink" title="数据定义伪指令"></a>数据定义伪指令</h3><ul>
+<li><p>DCB    字节</p>
+<p>{<label>} DCB <expr></expr></label></p>
+</li>
+<li><p>DCW    半字</p>
+</li>
+<li><p>DCD     字</p>
+</li>
+<li><p>DCFD    double</p>
+</li>
+<li><p>DCFS     signal</p>
+</li>
+<li><p>DCQ      8字节</p>
+</li>
+<li><p>SPACE    空</p>
+<p>DataSpace  SPACE 100</p>
+</li>
+<li><p>LTORG</p>
+<p>用来说明后面的某个存储区域为一个用来暂时存储数据的数据缓冲区</p>
+</li>
+<li><p>FIELD 和 MAP 用来定义结构化的内存表</p>
+<p>​    MAP 0X100 ；定义结构化内存表首地址为0X100<br>​    A FIELD 16 ；定义A的长度为16字节，位置为0X100<br>​    B FIELD 32 ；定义B的长度为32字节，位置为0X110<br>​    S FIELD 256 ；定义S的长度为256字节，位置为0X130</p>
+</li>
+</ul>
+<h3 id="其他常用的伪指令"><a href="#其他常用的伪指令" class="headerlink" title="其他常用的伪指令"></a>其他常用的伪指令</h3><ul>
+<li><p>ALIGN 对齐方式</p>
+</li>
+<li><p>ENTRY</p>
+</li>
+<li><p>END</p>
+</li>
+<li><p>EQU</p>
+<p>Test EQU 50   ；定义标号Test的值为50<br>Addr EQU 0x55, CODE32 ；定义Addr的值为0x55，且该处为32位的ARM指令</p>
+</li>
+<li><p>EXPORT 声明外部可引用</p>
+</li>
+<li><p>IMPORT/EXTERN 引用外部的符号</p>
+</li>
+<li><p>GET/INCLUDE</p>
+<p>将一个源文件包含到当前的源文件，并将被包含的源文件在当前位置进行汇编</p>
+</li>
+<li><p>RN 给寄存器起别名</p>
+</li>
+</ul>
+<h3 id="arm宏"><a href="#arm宏" class="headerlink" title="arm宏"></a>arm宏</h3><ul>
+<li><p>MARCO 和 MEND</p>
+<p>可以为一段程序段定义一个名称，这样，在汇编语言应用程序中可以通过这个名称来使用它代表的程序段。</p>
+</li>
+</ul>
+<h3 id="宏指令"><a href="#宏指令" class="headerlink" title="宏指令"></a>宏指令</h3><ul>
+<li><p>ADR</p>
+<p>ADR <reg>,<expr></expr></reg></p>
+<p>将一个近地址值传到一个寄存器中</p>
+</li>
+<li><p>ADRL   远地址，只能在ARM状态下使用</p>
+</li>
+<li><p>LDR 全范围地址</p>
+</li>
+<li><p>NOP 空指令</p>
+</li>
+</ul>
+<h3 id="else"><a href="#else" class="headerlink" title="else"></a>else</h3><ul>
+<li><p>跳转表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MOV R0,N</span><br><span class="line">ADR R5,JPTAB</span><br><span class="line">LDR PC,[R5,R0,LSL #2]</span><br><span class="line">JPTAB</span><br><span class="line">	DCD FUN0</span><br><span class="line">	DCD FUN1</span><br><span class="line">	DCD FUN2</span><br><span class="line">FUN0 ……</span><br><span class="line">FUN1 ……</span><br><span class="line">FUN2 ……</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ARM/" rel="tag"># ARM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/12/pytorch/" rel="next" title="pytorch">
+                <i class="fa fa-chevron-left"></i> pytorch
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/22/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="HWZ" />
+            
+              <p class="site-author-name" itemprop="name">HWZ</p>
+              <p class="site-description motion-element" itemprop="description">[learn|diary]</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ARM"><span class="nav-number">1.</span> <span class="nav-text">ARM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#V4"><span class="nav-number">1.0.1.</span> <span class="nav-text">V4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#V5"><span class="nav-number">1.0.2.</span> <span class="nav-text">V5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#V6"><span class="nav-number">1.0.3.</span> <span class="nav-text">V6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thumb"><span class="nav-number">1.0.4.</span> <span class="nav-text">Thumb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thumb-2"><span class="nav-number">1.0.5.</span> <span class="nav-text">Thumb-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#伪指令"><span class="nav-number">2.</span> <span class="nav-text">伪指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#段定义"><span class="nav-number">2.0.1.</span> <span class="nav-text">段定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号定义"><span class="nav-number">2.0.2.</span> <span class="nav-text">符号定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据定义伪指令"><span class="nav-number">2.0.3.</span> <span class="nav-text">数据定义伪指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他常用的伪指令"><span class="nav-number">2.0.4.</span> <span class="nav-text">其他常用的伪指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arm宏"><span class="nav-number">2.0.5.</span> <span class="nav-text">arm宏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏指令"><span class="nav-number">2.0.6.</span> <span class="nav-text">宏指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#else"><span class="nav-number">2.0.7.</span> <span class="nav-text">else</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HWZ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+</body>
+</html>

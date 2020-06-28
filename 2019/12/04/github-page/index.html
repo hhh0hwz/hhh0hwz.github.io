@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="github,hexo," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="HWZ" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="github page + hexo前段时间，用Jekyll搭建了一个静态博客，但是jekyll对于公式的支持不是很好，而且其编辑工具jekyll writer好久没有更新了，我已经开始怀疑这个jekyll是否还有人在用了。 准备工作node.js去官网下载就可以了：https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F; 安装直接一路next github注册注册一个github的帐号 gitgit的一些命">
+<meta property="og:type" content="article">
+<meta property="og:title" content="github page">
+<meta property="og:url" content="https://hhh0hwz.github.io/2019/12/04/github-page/index.html">
+<meta property="og:site_name" content="HWZ">
+<meta property="og:description" content="github page + hexo前段时间，用Jekyll搭建了一个静态博客，但是jekyll对于公式的支持不是很好，而且其编辑工具jekyll writer好久没有更新了，我已经开始怀疑这个jekyll是否还有人在用了。 准备工作node.js去官网下载就可以了：https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F; 安装直接一路next github注册注册一个github的帐号 gitgit的一些命">
+<meta property="article:published_time" content="2019-12-04T01:40:18.000Z">
+<meta property="article:modified_time" content="2019-12-04T02:52:22.000Z">
+<meta property="article:author" content="HWZ">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hhh0hwz.github.io/2019/12/04/github-page/"/>
+
+
+
+
+
+  <title>github page | HWZ</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HWZ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">双木成林</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hhh0hwz.github.io/2019/12/04/github-page/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HWZ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HWZ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">github page</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-04T09:40:18+08:00">
+                2019-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="github-page-hexo"><a href="#github-page-hexo" class="headerlink" title="github page + hexo"></a>github page + hexo</h1><p>前段时间，用Jekyll搭建了一个静态博客，但是jekyll对于公式的支持不是很好，而且其编辑工具jekyll writer好久没有更新了，我已经开始怀疑这个jekyll是否还有人在用了。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h3><p>去官网下载就可以了：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
+<p>安装直接一路next</p>
+<h3 id="github注册"><a href="#github注册" class="headerlink" title="github注册"></a>github注册</h3><p>注册一个github的帐号</p>
+<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><h5 id="git的一些命令"><a href="#git的一些命令" class="headerlink" title="git的一些命令"></a>git的一些命令</h5><p>git我会的也不是很多，还需要学习，过段时间，学习完git再写一篇</p>
+<p>具体的参加廖雪峰的教程：<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
+<ul>
+<li><p><code>git init</code> 将一个空文件夹，初始化为一个git仓库，在文件夹中会有一个隐藏文件夹<code>.git</code></p>
+</li>
+<li><p><code>git add xxxx</code> 将文件<code>xxxx</code> 添加到仓库中。也可以使用<code>git add all</code> 将全部的文件都添加</p>
+</li>
+<li><p><code>git commit -m &quot;描述&quot;</code> 将刚才<code>add</code> 的文件提交到git中</p>
+<p>添加文件分两步：<code>add</code> 和<code>commit</code></p>
+</li>
+</ul>
+<p>和github相关的git操作</p>
+<ul>
+<li><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code> 创建密钥，如果想要本地的git和github连接这是必要的；命令执行后，你可以在用户主目录看到<code>.ssh</code>文件夹，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，前者是私钥，后者是公钥。</li>
+<li>登陆github，打开“Account setting”，“SSH keys”界面，新建keys，将<code>id_rsa.pub</code>里的内容copy进去</li>
+<li><code>git remote add origin git@github.com:hhh0hwz/xxx.git</code>将github上的<code>xxx.git</code> 和本地的仓库连接</li>
+<li><code>git push -u origin master</code> 首次使用加<code>-u</code> ，以后就可以不加了</li>
+<li><code>git clone git@github.com:hhh0hwz/xxx.git</code> 将<code>xxx.git</code> 克隆到本地，注意后面的git部分，也可以使用http协议</li>
+</ul>
+<h5 id="git的安装"><a href="#git的安装" class="headerlink" title="git的安装"></a>git的安装</h5><p>git安装也是一路next</p>
+<p>不过安装结束之后，需要在git bash中输入两条命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;Your name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="正式工作"><a href="#正式工作" class="headerlink" title="正式工作"></a>正式工作</h2><ol>
+<li><p>新建一个空文件夹 <code>.\hexo</code></p>
+</li>
+<li><p>打开命令行，进入到该文件夹中；在命令行中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install hexo-cli -g</span><br><span class="line">&gt; npm install hexo --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个blog文件夹，并在命令行中进入到该目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo init</span><br><span class="line">&gt; npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接下来的操作可以看另一篇post “<strong>hexo-总结</strong>”</p>
+</li>
+<li><p>将hexo和GitHub联系起来</p>
+<ol>
+<li><p>配置git，即设置git的用户名和邮箱，生成rsa密钥</p>
+</li>
+<li><p>配置hexo</p>
+<ol>
+<li><p>打开<code>.\blog</code> 目录下的<code>_config.yml</code>文件，进行如下修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> type: git</span><br><span class="line"> repo: git@github.com:yourname&#x2F;youname.github.io.git</span><br><span class="line"> branch: master</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>经过上一步之后，就可以开始写博客了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &quot;article title&quot;</span><br></pre></td></tr></table></figure>
+<p>使用maekdown编辑器(推荐Typora)编辑好之后,运行生成，部署命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d &#x2F;&#x2F;部署到github上，如果想在本地预览，可以用 hexo s 命令</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>主题的配置，推荐next主题，可以看按照官网给出的选项来。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/github/" rel="tag"># github</a>
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/03/hexo-%E6%80%BB%E7%BB%93/" rel="next" title="hexo-总结">
+                <i class="fa fa-chevron-left"></i> hexo-总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/04/EM%E7%AE%97%E6%B3%95/" rel="prev" title="EM算法">
+                EM算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="HWZ" />
+            
+              <p class="site-author-name" itemprop="name">HWZ</p>
+              <p class="site-description motion-element" itemprop="description">[learn|diary]</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#github-page-hexo"><span class="nav-number">1.</span> <span class="nav-text">github page + hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js"><span class="nav-number">1.1.1.</span> <span class="nav-text">node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github注册"><span class="nav-number">1.1.2.</span> <span class="nav-text">github注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git"><span class="nav-number">1.1.3.</span> <span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#git的一些命令"><span class="nav-number">1.1.3.0.1.</span> <span class="nav-text">git的一些命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git的安装"><span class="nav-number">1.1.3.0.2.</span> <span class="nav-text">git的安装</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正式工作"><span class="nav-number">1.2.</span> <span class="nav-text">正式工作</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HWZ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+</body>
+</html>
