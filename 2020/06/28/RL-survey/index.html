@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="SGD," />
+  <meta name="keywords" content="survey," />
 
 
 
@@ -83,16 +83,16 @@
 
 
 
-<meta name="description" content="随机梯度下降梯度下降大多数机器学习或者深度学习算法都涉及某种形式的优化。优化指的是改变$x$以最大化或者最小化$f(x)$的任务。 我们把要最小化或最大化的函数成为目标函数或者准则。当我们对其进行最小化时，我们也把它称为代价函数、损失函数或者误差函数。 假设一个损失函数为：  J(\theta) &#x3D; 1&#x2F;2\sum_{i&#x3D;1}^{m}(h_{\theta}(x)-y)^2其中$h_{\theta(">
+<meta name="description" content="2017 AAAIMachine Learning Applications Masamichi Shimosaka, Junichi Sato, Kazuhito Takenaka, Kentarou Hitomi:  Fast Inverse Reinforcement Learning with Interval Consistent Graph for Driving Behavior P">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SGD">
-<meta property="og:url" content="https://hhh0hwz.github.io/2019/12/05/SGD/index.html">
+<meta property="og:title" content="RL_survey">
+<meta property="og:url" content="https://hhh0hwz.github.io/2020/06/28/RL-survey/index.html">
 <meta property="og:site_name" content="HWZ">
-<meta property="og:description" content="随机梯度下降梯度下降大多数机器学习或者深度学习算法都涉及某种形式的优化。优化指的是改变$x$以最大化或者最小化$f(x)$的任务。 我们把要最小化或最大化的函数成为目标函数或者准则。当我们对其进行最小化时，我们也把它称为代价函数、损失函数或者误差函数。 假设一个损失函数为：  J(\theta) &#x3D; 1&#x2F;2\sum_{i&#x3D;1}^{m}(h_{\theta}(x)-y)^2其中$h_{\theta(">
-<meta property="article:published_time" content="2019-12-05T04:28:37.000Z">
-<meta property="article:modified_time" content="2019-12-06T01:46:32.000Z">
+<meta property="og:description" content="2017 AAAIMachine Learning Applications Masamichi Shimosaka, Junichi Sato, Kazuhito Takenaka, Kentarou Hitomi:  Fast Inverse Reinforcement Learning with Interval Consistent Graph for Driving Behavior P">
+<meta property="article:published_time" content="2020-06-28T06:45:47.000Z">
+<meta property="article:modified_time" content="2020-06-28T08:04:08.733Z">
 <meta property="article:author" content="HWZ">
-<meta property="article:tag" content="SGD">
+<meta property="article:tag" content="survey">
 <meta name="twitter:card" content="summary">
 
 
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://hhh0hwz.github.io/2019/12/05/SGD/"/>
+  <link rel="canonical" href="https://hhh0hwz.github.io/2020/06/28/RL-survey/"/>
 
 
 
 
 
-  <title>SGD | HWZ</title>
+  <title>RL_survey | HWZ</title>
   
 
 
@@ -256,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hhh0hwz.github.io/2019/12/05/SGD/">
+    <link itemprop="mainEntityOfPage" href="https://hhh0hwz.github.io/2020/06/28/RL-survey/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HWZ">
@@ -273,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SGD</h1>
+          <h1 class="post-title" itemprop="name headline">RL_survey</h1>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-05T12:28:37+08:00">
-                2019-12-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-28T14:45:47+08:00">
+                2020-06-28
               </time>
             
 
@@ -308,8 +308,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" itemprop="url" rel="index">
-                    <span itemprop="name">梯度下降</span>
+                  <a href="/categories/RL/" itemprop="url" rel="index">
+                    <span itemprop="name">RL</span>
                   </a>
                 </span>
 
@@ -345,29 +345,99 @@
       
 
       
-        <h2 id="随机梯度下降"><a href="#随机梯度下降" class="headerlink" title="随机梯度下降"></a>随机梯度下降</h2><h4 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h4><p>大多数机器学习或者深度学习算法都涉及某种形式的优化。优化指的是改变$x$以最大化或者最小化$f(x)$的任务。</p>
-<p>我们把要最小化或最大化的函数成为目标函数或者准则。当我们对其进行最小化时，我们也把它称为<strong>代价函数、损失函数或者误差函数</strong>。</p>
-<p>假设一个损失函数为：</p>
-<script type="math/tex; mode=display">
-J(\theta) = 1/2\sum_{i=1}^{m}(h_{\theta}(x)-y)^2</script><p>其中$h_{\theta(x)} = \theta_0+ \theta_1x_1+…+\theta_n x_n$ ,然后要最小化它。</p>
-<p><strong>梯度下降：</strong>我们知道曲面上方向导数的最大值的方向就代表了梯度的方向，因此我们在做梯度下降的时候，应该是沿着梯度的反方向进行权重的更新，可以有效的找到全局的最优解。这个的更新过程可以描述为：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\theta_j &= \theta_j - \alpha\frac{\partial}{\partial\theta_j}J(\theta)\\
-\frac{\partial}{\partial\theta_j}J(\theta) &= \frac{\partial}{\partial\theta_j}\frac{1}{2}(h_{\theta}(x)-y)^2\\
-&= 2*\frac{1}{2}(h_{\theta}(x)-y)\cdot\frac{\partial}{\partial\theta_j}(\sum_{i=0}^{n}\theta_ix_i-y)\\
-&= (h_{\theta}(x)-y)x_j
-\end{align}</script><p>其中，$\alpha$ 是学习率。</p>
-<h4 id="拓展为随机梯度下降"><a href="#拓展为随机梯度下降" class="headerlink" title="拓展为随机梯度下降"></a>拓展为随机梯度下降</h4><ul>
-<li><p>批量梯度下降：<u>在每次更新时用所有样本</u>，要留意，在梯度下降中，对于$\theta_i$的更新，所有的样本都有贡献。其计算得到的是一个标准梯度，对于最优化问题，凸问题，也肯定可以达到一个全局最优。因而理论上来说一次更新的幅度是比较大的。如果样本不多的情况下，当然是这样收敛的速度会更快啦。但是很多时候，样本很多，更新一次要很久，这样的方法就不合适啦。下图是其更新公式</p>
-<script type="math/tex; mode=display">
-\theta_j = \theta_j+\alpha\sum_{i=1}^{m}(y^{(i)}-h_{\theta}(x^{(i)}))x_j^{(i)},(\ for\ every\ j\ )</script></li>
-<li><p>随机梯度下降：<u>在每次更新时用1个样本</u>，可以看到多了随机两个字，随机也就是说我们用样本中的一个例子来近似我所有的样本，来调整$\theta$ ，因而随机梯度下降是会带来一定的问题，因为计算得到的并不是准确的一个梯度，对于最优化问题，凸问题，虽然不是每次迭代得到的损失函数都向着全局最优方向， 但是大的整体的方向是向全局最优解的，最终的结果往往是在全局最优解附近。但是相比于批量梯度，这样的方法更快，更快收敛，虽然不是全局最优，但很多时候是我们可以接受的，所以这个方法用的也比上面的多。下图是其更新公式：</p>
-<p>for i = 1 to m : </p>
-<script type="math/tex; mode=display">
-\theta_j = \theta_j+\alpha\sum_{i=1}^{m}(y^{(i)}-h_{\theta}(x^{(i)}))x_j^{(i)},(\ for\ every\ j\ )</script></li>
-<li><p>mini-batch梯度下降：<u>在每次更新时用b个样本</u>，其实批量的梯度下降就是一种折中的方法，他用了一些小样本来近似全部的，其本质就是我1个指不定不太准，那我用个30个50个样本那比随机的要准不少了吧，而且批量的话还是非常可以反映样本的一个分布情况的。在深度学习中，这种方法用的是最多的，因为这个方法收敛也不会很慢，收敛的局部最优也是更多的可以接受！</p>
+        <h2 id="2017-AAAI"><a href="#2017-AAAI" class="headerlink" title="2017 AAAI"></a>2017 AAAI</h2><h4 id="Machine-Learning-Applications"><a href="#Machine-Learning-Applications" class="headerlink" title="Machine Learning Applications"></a>Machine Learning Applications</h4><ul>
+<li><p>Masamichi Shimosaka, Junichi Sato, Kazuhito Takenaka, Kentarou Hitomi: </p>
+<p>Fast Inverse Reinforcement Learning with Interval Consistent Graph for Driving Behavior Prediction. 1532-1538</p>
 </li>
+<li><p>Kamil Andrzej Ciosek, Shimon Whiteson:<br>OFFER: Off-Environment Reinforcement Learning. 1819-1825</p>
+</li>
+<li><p>Carlo D’Eramo, Alessandro Nuara, Matteo Pirotta, Marcello Restelli:<br>Estimating the Maximum Expected Value in Continuous Reinforcement Learning Problems. 1840-1846</p>
+</li>
+<li><p>Salam El Bsat, Haitham Bou-Ammar, Matthew E. Taylor:<br>Scalable Multitask Policy Gradient Reinforcement Learning. 1847-1853</p>
+</li>
+<li><p>Aravind S. Lakshminarayanan, Sahil Sharma, Balaraman Ravindran:<br>Dynamic Action Repetition for Deep Reinforcement Learning. 2133-2139</p>
+</li>
+<li><p>Travis Mandel, Yun-En Liu, Emma Brunskill, Zoran Popovic:<br>Where to Add Actions in Human-in-the-Loop Reinforcement Learning. 2322-2328</p>
+</li>
+<li><p>Maxwell Svetlik, Matteo Leonetti, Jivko Sinapov, Rishi Shah, Nick Walker, Peter Stone:<br>Automatic Curriculum Graph Generation for Reinforcement Learning Agents. 2590-2596</p>
+</li>
+<li><p>Erik Talvitie:<br>Self-Correcting Models for Model-Based Reinforcement Learning. 2597-2603</p>
+</li>
+</ul>
+<h4 id="Planning-and-Scheduling"><a href="#Planning-and-Scheduling" class="headerlink" title="Planning and Scheduling"></a>Planning and Scheduling</h4><ul>
+<li><p>Zhuoru Li, Akshay Narayan, Tze-Yun Leong:<br>An Efficient Approach to Model-Based Hierarchical Reinforcement Learning. 3583-3589</p>
+</li>
+<li><p>Stuedent Abstracts<br>Rodrigo Cesar Bonini, Felipe Leno da Silva, Anna Helena Reali Costa:<br>Learning Options in Multiobjective Reinforcement Learning. 4907-4908</p>
+</li>
+<li><p>Ruben Glatt, Anna Helena Reali Costa:<br>Policy Reuse in Deep Reinforcement Learning. 4929-4930</p>
+</li>
+</ul>
+<h2 id="2018-AAAI"><a href="#2018-AAAI" class="headerlink" title="2018 AAAI"></a>2018 AAAI</h2><ul>
+<li><p>Yueh-Hua Wu, Shou-De Lin:<br>A Low-Cost Ethics Shaping Approach for Designing Reinforcement Learning Agents. 1687-1694</p>
+</li>
+<li><p>Kristopher De Asis, J. Fernando Hernandez-Garcia, G. Zacharias Holland, Richard S. Sutton:<br>Multi-Step Reinforcement Learning: A Unifying Algorithm. 2902-2909</p>
+</li>
+<li><p>Udayan Khurana, Horst Samulowitz, Deepak S. Turaga:<br>Feature Engineering for Predictive Modeling Using Reinforcement Learning. 3407-3414</p>
+</li>
+<li><p>Lianmin Zheng, Jiacheng Yang, Han Cai, Ming Zhou, Weinan Zhang, Jun Wang, Yong Yu:<br>MAgent: A Many-Agent Reinforcement Learning Platform for Artificial Collective Intelligence. 8222-8223</p>
+</li>
+<li>a service of Schloss Dagstuhl - Leibniz Center for Informatics    homebrowsesearchabout<br>w3c valid html last updated on 2020-06-24 01:04 CEST by the dblp team</li>
+</ul>
+<h2 id="2019-AAAI"><a href="#2019-AAAI" class="headerlink" title="2019 AAAI"></a>2019 AAAI</h2><ul>
+<li><p>Atanu R. Sinha, Deepali Jain, Nikhil Sheoran, Sopan Khosla, Reshmi Sasidharan:<br>Surveys without Questions: A Reinforcement Learning Approach. 257-264</p>
+</li>
+<li><p>Jing Zhang, Bowen Hao, Bo Chen, Cuiping Li, Hong Chen, Jimeng Sun:<br>Hierarchical Reinforcement Learning for Course Recommendation in MOOCs. 435-442<br>与推荐的结合？</p>
+</li>
+<li><p>Daoming Lyu, Fangkai Yang, Bo Liu, Steven Gustafson:<br>SDRL: Interpretable and Data-Efficient Deep Reinforcement Learning Leveraging Symbolic Planning. 2970-2977<br>可解释？</p>
+</li>
+<li><p>Yonathan Efroni, Gal Dalal, Bruno Scherrer, Shie Mannor:<br>How to Combine Tree-Search Methods in Reinforcement Learning. 3494-3501</p>
+</li>
+<li><p>Jing-Cheng Shi, Yang Yu, Qing Da, Shi-Yong Chen, Anxiang Zeng:<br>Virtual-Taobao: Virtualizing Real-World Online Retail Environment for Reinforcement Learning. 4902-4909</p>
+</li>
+<li><p>Silviu Pitis:<br>Rethinking the Discount Factor in Reinforcement Learning: A Decision Theoretic Approach. 7949-7956</p>
+</li>
+<li><p>Xiaoming Liu, Zhixiong Xu, Lei Cao, Xiliang Chen, Kai Kang:</p>
+<p>Deep Reinforcement Learning via Past-Success Directed Exploration. 9979-9980</p>
+</li>
+<li><p>Rey Pocius, Lawrence Neal, Alan Fern:</p>
+<p>Strategic Tasks for Explainable Reinforcement Learning. 10007-10008</p>
+</li>
+<li><p>Jacob Rafati, David C. Noelle:</p>
+<p>Learning Representations in Model-Free Hierarchical Reinforcement Learning. 10009-10010</p>
+</li>
+</ul>
+<h2 id="2020-AAAI"><a href="#2020-AAAI" class="headerlink" title="2020 AAAI"></a>2020 AAAI</h2><ul>
+<li><p>Yaqing Wang, Weifeng Yang, Fenglong Ma, Jin Xu, Bin Zhong, Qiang Deng, Jing Gao:<br>Weak Supervision for Fake News Detection via Reinforcement Learning. 516-523</p>
+</li>
+<li><p>Wenjie Huang, Pham Viet Hai, William Benjamin Haskell:<br>Model and Reinforcement Learning for Markov Games with Risk Preferences. 2022-2029</p>
+</li>
+<li><p>Maor Gaon, Ronen I. Brafman:<br>Reinforcement Learning with Non-Markovian Rewards. 3980-3987</p>
+</li>
+<li><p>Guojia Wan, Bo Du, Shirui Pan, Gholamreza Haffari:<br>Reinforcement Learning Based Meta-Path Discovery in Large-Scale Heterogeneous Information Networks. 6094-6101</p>
+</li>
+<li><p>Min Yang, Chengming Li, Fei Sun, Zhou Zhao, Ying Shen, Chenglin Wu:<br>Be Relevant, Non-Redundant, and Timely: Deep Reinforcement Learning for Real-Time Event Summarization. 9410-9417</p>
+</li>
+<li><p>Prashan Madumal:<br>Explainable Agency in Reinforcement Learning Agents. 13724-13725</p>
+</li>
+</ul>
+<h2 id="2017-NIPS"><a href="#2017-NIPS" class="headerlink" title="2017 NIPS"></a>2017 NIPS</h2><ul>
+<li>Bridging the Gap Between Value and Policy Based Reinforcement Learning<br><a href="http://papers.nips.cc/paper/6870-bridging-the-gap-between-value-and-policy-based-reinforcement-learning" target="_blank" rel="noopener">http://papers.nips.cc/paper/6870-bridging-the-gap-between-value-and-policy-based-reinforcement-learning</a></li>
+</ul>
+<h2 id="2019-ICML"><a href="#2019-ICML" class="headerlink" title="2019 ICML"></a>2019 ICML</h2><ul>
+<li><p>Generative Adversarial User Model for Reinforcement Learning Based Recommendation System In Time Series<br>Xinshi Chen · Shuang Li · Hui Li · Shaohua Jiang · Yuan Qi · Le Song</p>
+</li>
+<li><p>David Abel:<br>A Theory of State Abstraction for Reinforcement Learning. 9876-9877</p>
+</li>
+<li><p>Ana Valeria González-Garduño:</p>
+<p>Reinforcement Learning for Improved Low Resource Dialogue Generation. 9884-9885</p>
+</li>
+<li><p>Abhinav Verma:<br>Verifiable and Interpretable Reinforcement Learning through Program Synthesis. 9902-9903</p>
+</li>
+<li><p>Ruohan Zhang:<br>Attention Guided Imitation Learning and Reinforcement Learning. 9906-9907</p>
+</li>
+</ul>
+<h2 id="2019-NIPS"><a href="#2019-NIPS" class="headerlink" title="2019 NIPS"></a>2019 NIPS</h2><ul>
+<li>Text-Based Interactive Recommendation via Constraint-Augmented Reinforcement Learning</li>
 </ul>
 
       
@@ -386,7 +456,7 @@ J(\theta) = 1/2\sum_{i=1}^{m}(h_{\theta}(x)-y)^2</script><p>其中$h_{\theta(x)}
       
         <div class="post-tags">
           
-            <a href="/tags/SGD/" rel="tag"># SGD</a>
+            <a href="/tags/survey/" rel="tag"># survey</a>
           
         </div>
       
@@ -399,8 +469,8 @@ J(\theta) = 1/2\sum_{i=1}^{m}(h_{\theta}(x)-y)^2</script><p>其中$h_{\theta(x)}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/05/transE-code-%E7%AC%94%E8%AE%B0/" rel="next" title="transE code 笔记">
-                <i class="fa fa-chevron-left"></i> transE code 笔记
+              <a href="/2019/12/29/arm%E6%B1%87%E7%BC%96/" rel="next" title="arm汇编">
+                <i class="fa fa-chevron-left"></i> arm汇编
               </a>
             
           </div>
@@ -408,10 +478,6 @@ J(\theta) = 1/2\sum_{i=1}^{m}(h_{\theta}(x)-y)^2</script><p>其中$h_{\theta(x)}
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/12/pytorch/" rel="prev" title="pytorch">
-                pytorch <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,7 +620,7 @@ J(\theta) = 1/2\sum_{i=1}^{m}(h_{\theta}(x)-y)^2</script><p>其中$h_{\theta(x)}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#随机梯度下降"><span class="nav-number">1.</span> <span class="nav-text">随机梯度下降</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#梯度下降"><span class="nav-number">1.0.1.</span> <span class="nav-text">梯度下降</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展为随机梯度下降"><span class="nav-number">1.0.2.</span> <span class="nav-text">拓展为随机梯度下降</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2017-AAAI"><span class="nav-number">1.</span> <span class="nav-text">2017 AAAI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Machine-Learning-Applications"><span class="nav-number">1.0.1.</span> <span class="nav-text">Machine Learning Applications</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Planning-and-Scheduling"><span class="nav-number">1.0.2.</span> <span class="nav-text">Planning and Scheduling</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-AAAI"><span class="nav-number">2.</span> <span class="nav-text">2018 AAAI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2019-AAAI"><span class="nav-number">3.</span> <span class="nav-text">2019 AAAI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-AAAI"><span class="nav-number">4.</span> <span class="nav-text">2020 AAAI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2017-NIPS"><span class="nav-number">5.</span> <span class="nav-text">2017 NIPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2019-ICML"><span class="nav-number">6.</span> <span class="nav-text">2019 ICML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2019-NIPS"><span class="nav-number">7.</span> <span class="nav-text">2019 NIPS</span></a></li></ol></div>
             
 
           </div>
@@ -761,26 +827,6 @@ J(\theta) = 1/2\sum_{i=1}^{m}(h_{\theta}(x)-y)^2</script><p>其中$h_{\theta(x)}
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
