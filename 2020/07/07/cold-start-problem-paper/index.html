@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="HWZ" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="cold-start RS  RL for RS RL for cold-start in RS multi-arm Contextual Bandit 2020 SIGIRCold-start RS Content-aware Neural Hashing for Cold-start Recommendation.  Recommending Podcasts for Cold-Start U">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cold-start problem paper">
+<meta property="og:url" content="https://hhh0hwz.github.io/2020/07/07/cold-start-problem-paper/index.html">
+<meta property="og:site_name" content="HWZ">
+<meta property="og:description" content="cold-start RS  RL for RS RL for cold-start in RS multi-arm Contextual Bandit 2020 SIGIRCold-start RS Content-aware Neural Hashing for Cold-start Recommendation.  Recommending Podcasts for Cold-Start U">
+<meta property="article:published_time" content="2020-07-07T09:39:56.000Z">
+<meta property="article:modified_time" content="2020-07-07T16:51:33.429Z">
+<meta property="article:author" content="HWZ">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hhh0hwz.github.io/2020/07/07/cold-start-problem-paper/"/>
+
+
+
+
+
+  <title>cold-start problem paper | HWZ</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HWZ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">双木成林</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hhh0hwz.github.io/2020/07/07/cold-start-problem-paper/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HWZ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HWZ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">cold-start problem paper</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-07T17:39:56+08:00">
+                2020-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/survey/" itemprop="url" rel="index">
+                    <span itemprop="name">survey</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>cold-start RS</strong> </p>
+<p>RL for RS</p>
+<p>RL for cold-start in RS</p>
+<p>multi-arm Contextual Bandit</p>
+<h2 id="2020-SIGIR"><a href="#2020-SIGIR" class="headerlink" title="2020 SIGIR"></a>2020 SIGIR</h2><h4 id="Cold-start-RS"><a href="#Cold-start-RS" class="headerlink" title="Cold-start RS"></a>Cold-start RS</h4><ul>
+<li><p>Content-aware Neural Hashing for Cold-start Recommendation.</p>
+</li>
+<li><p><em>Recommending Podcasts for Cold-Start Users Based on Music Listening and Taste.</em></p>
+</li>
+<li><p>Recommendation for New Users and New Items via Randomized Training and Mixture-of-Experts Transformation.</p>
+</li>
+<li><p><strong>AR-CF: Augmenting Virtual Users and Items in Collaborative Filtering for Addressing Cold-Start Problems.</strong></p>
+</li>
+</ul>
+<h4 id="RL-for-RS"><a href="#RL-for-RS" class="headerlink" title="RL for RS"></a>RL for RS</h4><ul>
+<li><p>Self-Supervised Reinforcement Learning for Recommender Systems.</p>
+</li>
+<li><p>MaHRL: Multi-goals Abstraction based Deep Hierarchical Reinforcement Learning for Recommendations.</p>
+</li>
+<li><p><strong>Leveraging Demonstrations for Reinforcement Recommendation Reasoning over Knowledge Graphs.</strong></p>
+</li>
+</ul>
+<h2 id="2020-KDD"><a href="#2020-KDD" class="headerlink" title="2020 KDD"></a>2020 KDD</h2><h4 id="Cold-start"><a href="#Cold-start" class="headerlink" title="Cold-start"></a>Cold-start</h4><ul>
+<li><p>MAMO: Memory-Augmented Meta-Optimization for Cold-start Recommendation</p>
+<p><strong>Authors:</strong> Manqing Dong: University of New South Wales; Feng Yuan: University of New South Wales; Lina Yao: University of New South Wales; Xiwei Xu: Data 61; Liming Zhu: Data 61</p>
+</li>
+<li><p>Meta-learning on Heterogeneous Information Networks for Cold-start Recommendation</p>
+<p><strong>Authors:</strong> Yuanfu Lu: Beijing University of Posts and Telecommunications; Yuan Fang: Singapore Management University; Chuan Shi: Beijing University of Posts and Telecommunications</p>
+</li>
+</ul>
+<h4 id="RL-KG"><a href="#RL-KG" class="headerlink" title="RL+KG"></a>RL+KG</h4><ul>
+<li>Incremental Mobile User Profiling: Reinforcement Learning with Spatial Knowledge Graph for Modeling Event Streams<br><strong>Authors:</strong> Pengyang Wang: University of Central Florida; Kunpeng Liu: University of Central Florida; Lu Jiang: Northeast Normal University; Yanjie Fu: University of Central Florida; Xiaolin Li: Nanjing University</li>
+<li></li>
+</ul>
+<h2 id="2020-WWW"><a href="#2020-WWW" class="headerlink" title="2020 WWW"></a>2020 WWW</h2><ul>
+<li><p>Off-policy Learning in Two-stage Recommender Systems</p>
+<p>Many real-world recommender systems need to be highly scalable: matching millions of items with billions of users, with milliseconds latency. The <strong>scalability</strong> requirement has led to widely used two-stage recommender systems, consisting of efficient candidate generation model(s) in the first stage and a more powerful ranking model in the second stage.</p>
+<p>Logged user feedback, e.g., user clicks or dwell time, are often used to build both candidate generation and ranking models for recommender systems. While it’s easy to collect large amount of such data, they are inherently biased because the feedback can only be observed on items recommended by the previous systems. Recently, off-policy correction on such biases have attracted increasing interest in the field of recommender system research. However, most existing work either assumed that the recommender system is a single-stage system or only studied how to apply off-policy correction to the candidate generation stage of the system without explicitly considering the interactions between the two stages.</p>
+<p>In this work, we propose a two-stage off-policy policy gradient method, and showcase that ignoring the interaction between the two stages leads to a sub-optimal policy in two-stage recommender systems. The proposed method explicitly takes into account the ranking model when training the candidate generation model, which helps improve the performance of the whole system. We conduct experiments on real-world datasets with large item space and demonstrate the effectiveness of our proposed method.</p>
+</li>
+<li><p>Hierarchical Adaptive Contextual Bandits for Resource Constraint based Recommendation</p>
+<p>Contextual multi-armed bandit (MAB) achieves cutting-edge performance on a variety of problems. When it comes to real-world scenarios such as recommendation system and online advertising, however, it is essential to consider the resource consumption of exploration. In practice, there is typically non-zero cost associated with executing a recommendation (arm) in the environment, and hence, the policy should be learned with a fixed exploration cost constraint. It is challenging to learn a global optimal policy directly, since it is a NP-hard problem and significantly complicates the exploration and exploitation trade-off of bandit algorithms. Existing approaches focus on solving the problems by adopting the greedy policy which estimates the expected rewards and costs and uses a greedy selection based on each arm’s expected reward/cost ratio using historical observation until the exploration resource is exhausted. However, existing methods are hard to extend to infinite time horizon, since the learning process will be terminated when there is no more resource. In this paper, we propose a hierarchical adaptive contextual bandit method (HATCH) to conduct the policy learning of contextual bandits with a budget constraint. HATCH adopts an adaptive method to allocate the exploration resource based on the remaining resource/time and the estimation of reward distribution among different user contexts. In addition, we utilize full of contextual feature information to find the best personalized recommendation. Finally, in order to prove the theoretical guarantee, we present a regret bound analysis and prove that HATCH achieves a regret bound as low as . The experimental results demonstrate the effectiveness and efficiency of the proposed method on both synthetic data sets and the real-world applications.</p>
+</li>
+<li><p>Conversational Contextual Bandit: Algorithm and Application</p>
+<p>Contextual bandit algorithms provide principled <strong>online learning</strong> solutions to balance the exploitation-exploration trade-off in various applications such as recommender systems. However, the learning speed of the traditional contextual bandit algorithms is often slow due to the need for extensive exploration. This poses a critical issue in applications like recommender systems, since users may need to provide feedbacks on a lot of uninterested items. To accelerate the learning speed, we generalize contextual bandit to conversational contextual bandit. Conversational contextual bandit leverages not only behavioral feedbacks on arms (e.g., articles in news recommendation), but also occasional conversational feedbacks on key-terms from the user. Here, a key-term can relate to a subset of arms, for example, a category of articles in news recommendation. We then design the Conversational UCB algorithm (ConUCB) to address two challenges in conversational contextual bandit: (1) which key-terms to select to conduct conversation, (2) how to leverage conversational feedbacks to accelerate the speed of bandit learning. We theoretically prove that ConUCB can achieve a smaller regret upper bound than the traditional contextual bandit algorithm LinUCB, which implies a faster learning speed. Experiments on synthetic data, as well as real datasets from Yelp and Toutiao, demonstrate the efficacy of the ConUCB algorithm.</p>
+</li>
+<li><p><strong>Learning from <em>Cross-Modal Behavior</em> Dynamics with Graph-Regularized Neural Contextual Bandit</strong></p>
+<p>Contextual multi-armed bandit algorithms have received significant attention in modeling users’ preferences for <strong>online personalized recommender systems</strong> in a timely manner. While significant progress has been made along this direction, a few major challenges have not been well addressed yet: (i) a vast majority of the literature is based on linear models that cannot capture complex non-linear inter-dependencies of user-item interactions; (ii) existing literature mainly ignores the latent relations among users and non-recommended items: hence may not properly reflect users’ preferences in the real-world; (iii) current solutions are mainly based on historical data and are prone to cold-start problems for new users who have no interaction history.</p>
+<p>To address the above challenges, we develop a Graph Regularized Cross-modal (GRC) learning model, a general framework to exploit transferable knowledge learned from user-item interactions as well as the external features of users and items in online personalized recommendations. In particular, the GRC framework leverage a non-linearity of neural network to model complex inherent structure of user-item interactions. We further augment GRC with the cooperation of the metric learning technique and a graph-constrained embedding module, to map the units from different dimensions (temporal, social and semantic) into the same latent space. An extensive set of experiments are conducted on two benchmark datasets as well as a large scale proprietary dataset from a major search engine demonstrates the power of the proposed GRC model in effectively capturing users’ dynamic preferences under different settings by outperforming all baselines by a large margin.</p>
+</li>
+</ul>
+<h2 id="2020-ICML"><a href="#2020-ICML" class="headerlink" title="2020 ICML"></a>2020 ICML</h2><ul>
+<li><p>Non-Stationary Bandits with Intermediate Observations</p>
+<p>Online recommender systems </p>
+</li>
+<li><p>Stochastic bandits with arm-dependent delays</p>
+</li>
+</ul>
+<h2 id="2019-NIPS"><a href="#2019-NIPS" class="headerlink" title="2019 NIPS"></a>2019 NIPS</h2><h4 id="RL-for-RS-1"><a href="#RL-for-RS-1" class="headerlink" title="RL for RS"></a>RL for RS</h4><ul>
+<li><a href="http://papers.nips.cc/paper/9257-a-model-based-reinforcement-learning-with-adversarial-training-for-online-recommendation" target="_blank" rel="noopener">A Model-Based Reinforcement Learning with Adversarial Training for Online Recommendation</a> <a href="http://papers.nips.cc/author/xueying-bai-14275" target="_blank" rel="noopener">Xueying Bai</a>, <a href="http://papers.nips.cc/author/jian-guan-14276" target="_blank" rel="noopener">Jian Guan</a>, <a href="http://papers.nips.cc/author/hongning-wang-11803" target="_blank" rel="noopener">Hongning Wang</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/28/RL-survey/" rel="next" title="RL_survey">
+                <i class="fa fa-chevron-left"></i> RL_survey
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/27/Intro-to-RL/" rel="prev" title="Intro to RL">
+                Intro to RL <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="HWZ" />
+            
+              <p class="site-author-name" itemprop="name">HWZ</p>
+              <p class="site-description motion-element" itemprop="description">[learn|diary]</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-SIGIR"><span class="nav-number">1.</span> <span class="nav-text">2020 SIGIR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cold-start-RS"><span class="nav-number">1.0.1.</span> <span class="nav-text">Cold-start RS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RL-for-RS"><span class="nav-number">1.0.2.</span> <span class="nav-text">RL for RS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-KDD"><span class="nav-number">2.</span> <span class="nav-text">2020 KDD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cold-start"><span class="nav-number">2.0.1.</span> <span class="nav-text">Cold-start</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RL-KG"><span class="nav-number">2.0.2.</span> <span class="nav-text">RL+KG</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-WWW"><span class="nav-number">3.</span> <span class="nav-text">2020 WWW</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-ICML"><span class="nav-number">4.</span> <span class="nav-text">2020 ICML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2019-NIPS"><span class="nav-number">5.</span> <span class="nav-text">2019 NIPS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RL-for-RS-1"><span class="nav-number">5.0.1.</span> <span class="nav-text">RL for RS</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HWZ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+</body>
+</html>
