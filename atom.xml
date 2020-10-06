@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hhh0hwz.github.io/"/>
-  <updated>2020-09-17T10:59:30.597Z</updated>
+  <updated>2020-10-06T09:24:04.973Z</updated>
   <id>https://hhh0hwz.github.io/</id>
   
   <author>
@@ -15,6 +15,113 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cold-start survey</title>
+    <link href="https://hhh0hwz.github.io/2020/10/05/cold-start-survey/"/>
+    <id>https://hhh0hwz.github.io/2020/10/05/cold-start-survey/</id>
+    <published>2020-10-05T05:38:44.000Z</published>
+    <updated>2020-10-06T09:24:04.973Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="keyword"><a href="#keyword" class="headerlink" title="keyword"></a>keyword</h5><p>cold-start，cross domain， sparse</p><h3 id="2020WWW"><a href="#2020WWW" class="headerlink" title="2020WWW"></a>2020WWW</h3><h5 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h5><ul><li>Deep Transfer Learning for Search and Recommendation </li></ul><h5 id="paper"><a href="#paper" class="headerlink" title="paper"></a>paper</h5><ul><li><p><strong>PKE: A Model for Recommender Systems in Online Service Platform</strong></p><p><a href="https://dl.acm.org/doi/10.1145/3366424.3382090" target="_blank" rel="noopener">https://dl.acm.org/doi/10.1145/3366424.3382090</a></p></li><li><p>Treating Cold Start in Product Search by Priors</p><p><a href="https://dl.acm.org/doi/10.1145/3366424.3382705" target="_blank" rel="noopener">https://dl.acm.org/doi/10.1145/3366424.3382705</a></p></li><li><p>Time Series Forecasting for Cold-Start Items by Learning from Related Items using Memory Networks</p><p><a href="https://dl.acm.org/doi/10.1145/3366424.3382728" target="_blank" rel="noopener">https://dl.acm.org/doi/10.1145/3366424.3382728</a></p></li></ul><h3 id="2020KDD"><a href="#2020KDD" class="headerlink" title="2020KDD"></a>2020KDD</h3><h5 id="paper-1"><a href="#paper-1" class="headerlink" title="paper"></a>paper</h5><ul><li><p>A Block Decomposition Algorithm for Sparse Optimization</p><p><a href="https://www.kdd.org/kdd2020/accepted-papers/view/a-block-decomposition-algorithm-for-sparse-optimization" target="_blank" rel="noopener">https://www.kdd.org/kdd2020/accepted-papers/view/a-block-decomposition-algorithm-for-sparse-optimization</a></p></li><li><p>MAMO: Memory-Augmented Meta-Optimization for Cold-start Recommendation</p><p><a href="https://www.kdd.org/kdd2020/accepted-papers/view/mamo-memory-augmented-meta-optimization-for-cold-start-recommendation" target="_blank" rel="noopener">https://www.kdd.org/kdd2020/accepted-papers/view/mamo-memory-augmented-meta-optimization-for-cold-start-recommendation</a></p></li><li><p><strong>Meta-learning on Heterogeneous Information Networks for Cold-start Recommendation</strong></p><p><a href="https://www.kdd.org/kdd2020/accepted-papers/view/meta-learning-on-heterogeneous-information-networks-for-cold-start-recommen" target="_blank" rel="noopener">https://www.kdd.org/kdd2020/accepted-papers/view/meta-learning-on-heterogeneous-information-networks-for-cold-start-recommen</a></p></li><li><p>A Dual Heterogeneous Graph Attention Network to Improve Long-Tail Performance for Shop Search in E-Commerce</p><p>长尾物体</p><p><a href="https://www.kdd.org/kdd2020/accepted-papers/view/a-dual-heterogeneous-graph-attention-network-to-improve-long-tail-performan" target="_blank" rel="noopener">https://www.kdd.org/kdd2020/accepted-papers/view/a-dual-heterogeneous-graph-attention-network-to-improve-long-tail-performan</a></p></li></ul><h3 id="2019WWW"><a href="#2019WWW" class="headerlink" title="2019WWW"></a>2019WWW</h3><h5 id="paper-2"><a href="#paper-2" class="headerlink" title="paper"></a>paper</h5><ul><li><p>Multi-Task Feature Learning for Knowledge Graph Enhanced Recommendation</p><p><a href="https://dl.acm.org/doi/10.1145/3308558.3313411" target="_blank" rel="noopener">https://dl.acm.org/doi/10.1145/3308558.3313411</a></p></li><li><p>Cross-domain Recommendation Without Sharing User-relevant Data</p><p><a href="https://dl.acm.org/doi/10.1145/3308558.3313538" target="_blank" rel="noopener">https://dl.acm.org/doi/10.1145/3308558.3313538</a></p></li><li><p>Transfer Meets Hybrid: A Synthetic Approach for Cross-Domain Collaborative Filtering with Text</p><p><a href="https://dl.acm.org/doi/abs/10.1145/3308558.3313543" target="_blank" rel="noopener">https://dl.acm.org/doi/abs/10.1145/3308558.3313543</a></p></li></ul><h3 id="2018-WWW"><a href="#2018-WWW" class="headerlink" title="2018 WWW"></a>2018 WWW</h3><h5 id="paper-3"><a href="#paper-3" class="headerlink" title="paper"></a>paper</h5><ul><li><p>Aspect-Aware Latent Factor Model:Rating Prediction with Ratings and Reviews</p><p><a href="https://arxiv.org/pdf/1802.07938.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1802.07938.pdf</a></p></li><li><p>Cold Start Thread Recommendation as Extreme Multi-label Classification</p><p><a href="https://dl.acm.org/doi/10.1145/3184558.3191659" target="_blank" rel="noopener">https://dl.acm.org/doi/10.1145/3184558.3191659</a></p></li></ul><h3 id="2019-KDD"><a href="#2019-KDD" class="headerlink" title="2019 KDD"></a>2019 KDD</h3><h5 id="paper-4"><a href="#paper-4" class="headerlink" title="paper"></a>paper</h5><ul><li><p><a href="https://www.kdd.org/kdd2019/accepted-papers/view/melu-meta-learned-user-preference-estimator-for-cold-start-recommendation" target="_blank" rel="noopener">MeLU: Meta-Learned User Preference Estimator for Cold-Start Recommendation</a></p></li><li><p>Sequential Scenario-Specific Meta Learner for Online Recommendation</p><p><a href="https://www.kdd.org/kdd2019/accepted-papers/view/sequential-scenario-specific-meta-learner-for-online-recommendation" target="_blank" rel="noopener">https://www.kdd.org/kdd2019/accepted-papers/view/sequential-scenario-specific-meta-learner-for-online-recommendation</a></p></li><li><p>DAML: Dual Attention Mutual Learning between Ratings and Reviews for Item Recommendation</p><p><a href="https://www.kdd.org/kdd2019/accepted-papers/view/daml-dual-attention-mutual-learning-between-ratings-and-reviews-for-item-re" target="_blank" rel="noopener">https://www.kdd.org/kdd2019/accepted-papers/view/daml-dual-attention-mutual-learning-between-ratings-and-reviews-for-item-re</a></p></li></ul><h3 id="2018-KDD"><a href="#2018-KDD" class="headerlink" title="2018 KDD"></a>2018 KDD</h3><h5 id="paper-5"><a href="#paper-5" class="headerlink" title="paper"></a>paper</h5>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;keyword&quot;&gt;&lt;a href=&quot;#keyword&quot; class=&quot;headerlink&quot; title=&quot;keyword&quot;&gt;&lt;/a&gt;keyword&lt;/h5&gt;&lt;p&gt;cold-start，cross domain， sparse&lt;/p&gt;
+&lt;h3 id=&quot;2020WW
+      
+    
+    </summary>
+    
+    
+      <category term="paper" scheme="https://hhh0hwz.github.io/categories/paper/"/>
+    
+    
+      <category term="cold-start" scheme="https://hhh0hwz.github.io/tags/cold-start/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python-argparse.ArgumentParser()</title>
+    <link href="https://hhh0hwz.github.io/2020/09/20/python-argparse-ArgumentParser/"/>
+    <id>https://hhh0hwz.github.io/2020/09/20/python-argparse-ArgumentParser/</id>
+    <published>2020-09-20T10:35:46.000Z</published>
+    <updated>2020-09-20T11:17:30.156Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="用法解析"><a href="#用法解析" class="headerlink" title="用法解析"></a>用法解析</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ap = argparse.ArgumentParser()</span><br></pre></td></tr></table></figure><p>argparse 是一个python模块：命令行选项，参数和子命令解析器</p><p>使用流程：</p><ul><li><p>创建解析器</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser(</span><br><span class="line">description=<span class="string">''</span>)</span><br></pre></td></tr></table></figure></li><li><p>添加参数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(<span class="string">'--inner-batch'</span>, help=<span class="string">'inner batch size'</span>, choices=[<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>], default=<span class="number">5</span>, type=int,required=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure><p>比如上面的’—inner-batch’，例如在启动程序demo.py时，在终端输入./demo.py —inner-batch 10 就会将inner-batch这个选项的参数设置为10，不给参数时使用default参数5。</p><p>type为参数类型，例如int。</p><p>choices用来选择输入参数的范围。</p><p>help用来描述这个选项的作用。</p><p>required用来设置在命令中显示参数，当required为True时，运行程序时在命令行里必须给出参数。</p></li><li><p>解析参数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">args = parser.parse_args()</span><br></pre></td></tr></table></figure><p>将属性给与args实例： 把parser中设置的所有”add_argument”给返回到args子类实例当中， 那么parser中增加的属性内容都会在args实例中，使用即可。</p></li><li></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;用法解析&quot;&gt;&lt;a href=&quot;#用法解析&quot; class=&quot;headerlink&quot; title=&quot;用法解析&quot;&gt;&lt;/a&gt;用法解析&lt;/h5&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://hhh0hwz.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://hhh0hwz.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LDA线性判别分析</title>
+    <link href="https://hhh0hwz.github.io/2020/09/19/LDA%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/"/>
+    <id>https://hhh0hwz.github.io/2020/09/19/LDA%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/</id>
+    <published>2020-09-19T11:08:47.000Z</published>
+    <updated>2020-09-20T08:01:34.069Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h3><p>LDA的思想是：<strong>最大化类间均值，最小化类内方差</strong>。意思是将数据投影到低维度上，并且投影后同种类数据的投影点尽可能的接近，不同种类的投影点的中心点尽可能的远。</p><p>参考：<a href="https://zhuanlan.zhihu.com/p/79696530" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/79696530</a></p><p>假设样本有K类，每一类的样本的个数分别为$N_1,N_2,…,n_k$</p><p>$x_1^1,x_1^2,…,x_1^{N_1}$对应第1类</p><p>$x_2^1,x_2^2,…,x_2^{N_2}$对应第2类</p><p>$x_k^1,x_k^2,…,x_k^{N_k}$对应第K类，其中每个样本$x_i^j$均为$n$维向量</p><p>设$\hat{x_i^j}$为$x_i^j$变化后的样本，则$\hat{x_i^j}=<x,u>u=|x||u|cos\theta\cdot u=(x^Tu)u$</x,u></p><p>此处设$u$为单位向量，即$u^Tu=1$</p><p>假设第K类严格把你的数据集为$D_k$，变化后的样本<strong>均值</strong>为:</p><script type="math/tex; mode=display">\hat{m} = \frac{\sum_{\hat{x}\in D_k}{\hat{x}}}{N_k}</script><p>那么，第K类的样本<strong>方差</strong>为</p><script type="math/tex; mode=display">\frac{\sum_{\hat{x}\in D_k}(\hat x-\hat m)^T(\hat x-\hat m)}{N_k}</script><p>其中:</p><script type="math/tex; mode=display">\begin{aligned}\sum_{\hat{x}\in D_k}(\hat x-\hat m)^T(\hat x-\hat m)\\&=\sum_{x\in D_k}[(x^Tu)u-(m^Tu)u]^T[(x^Tu)u-(m^Tu)u]\\&=\sum_{x\in D_k}[(x^Tu)u^T-(m^Tu)u^T][(x^Tu)u-(m^Tu)u]\\&=\sum_{x\in D_k}[(x^Tu)^2u^Tu-2(x^Tu)(m^Tu)u^Tu+(m^Tu)^2u^Tu]\\&=\sum_{x\in D_k}[(x^Tu)^2-2(x^Tu)(m^Tu)+(m^Tu)^2]\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}\frac{\sum_{\hat{x}\in D_k}(\hat x-\hat m)^T(\hat x-\hat m)}{N_k}\\&=\frac{\sum_{x\in D_k}(x^Tu)^2}{N_k}-2\frac{\sum_{x\in D_k}x^Tum^Tu}{N_k}+\frac{\sum_{x\in D_k}(m^Tu)^2}{N_k}\\&=\frac{\sum_{x\in D_k}u^Txx^Tu}{N_k}-2\frac{\sum_{x\in D_k}x^T}{N_k}um^Tu+(m^Tu)^2\\&注：\frac{\sum_{x\in D_k}(m^Tu)^2}{N_k}=(m^Tu)^2，因为m^Tu和x无关\\&=u^T\frac{\sum_{x\in D_k}xx^T}{N_k}u-(m^Tu)^2\\&注：\frac{\sum_{x\in D_k}x^T}{N_k}=m^T\\&=u^T(\frac{\sum_{x\in D_k}xx^T}{N_k}-mm^T)u\end{aligned}</script><p>各个类别的样本方差之和：</p><script type="math/tex; mode=display">\begin{aligned}\sum_k\frac{S_k}{N_k}&=\sum_{k=1}^{K}u^T(\frac{\sum_{x\in D_k}xx^T}{N_k}-m_km_k^T)u\\&=u^T\sum_{k=1}^{K}(\frac{\sum_{x\in D_k}xx^T}{N_k}-m_km_k^T)u\\&=u^TS_wu\end{aligned}</script><p>不同类别$i,j$之间的中心距离：</p><script type="math/tex; mode=display">\begin{aligned}S_{i,j}&=(\hat m_i-\hat m_j)^T(\hat m_i-\hat m_j)\\&=[(u^Tm_i)u-(u^Tm_j)u]^T[(m_iu^T)u-(m_ju^T)u]\\&=[(u^Tm_i)u^T-(u^Tm_j)u^T][(m_iu^T)u-(m_ju^T)u]\\&=u^T(m_i-m_j)u^Tu(m_i^T-m_j^T)u\\&=u^T(m_i-m_j)(m_i-m_j)^Tu\\\end{aligned}</script><p>所有类别之间的距离之和为：</p><script type="math/tex; mode=display">\begin{aligned}\sum_{i,j;i!=j}S_{i,j}&=u^T\sum_{i,j;i!=j}(m_i-m_j)(m_i-m_j)^Tu\\&=u^TS_bu\end{aligned}</script><p>LDA算法的目标是<strong>类间距离尽可能大，类内方差尽可能小</strong>，即最大化$u^TS_bu$，最小化$u^TS_wu$。</p><p>令<strong>$J(u)=\frac{u^TS_bu}{u^TS_wu}$</strong>，则目标函数为:</p><script type="math/tex; mode=display">max J(u)</script><p>为了使所求最大，可假设$u^TS_wu=1$，则问题转化成：</p><script type="math/tex; mode=display">max\ u^TS_bu\\s.t. \ \ u^TS_wu=1</script><script type="math/tex; mode=display">\begin{aligned}L(u,\lambda)&=u^tS_bu+\lambda(1-u^TS_wu)\\\frac{\partial L}{\partial u}&=S_bu+S_b^Tu-\lambda S_w u-\lambda S_w^T u\\&=2(S_bu-\lambda S_wu) \ \ \ \ \ \ S_b,S_w都是对称矩阵\\&=0    \Rightarrow S_bu=\lambda S_wu\end{aligned}</script><p>所以：$S_w^{-1}S_bu = \lambda u$</p><p>计算矩阵$S_w^{-1}S_b$的最大的d个特征值和d个特征向量$(w_1,w_2,…,w_d)$，得到投影矩阵$W=(w_1,w_2,…,w_d)$。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;LDA&quot;&gt;&lt;a href=&quot;#LDA&quot; class=&quot;headerlink&quot; title=&quot;LDA&quot;&gt;&lt;/a&gt;LDA&lt;/h3&gt;&lt;p&gt;LDA的思想是：&lt;strong&gt;最大化类间均值，最小化类内方差&lt;/strong&gt;。意思是将数据投影到低维度上，并且投影后同种类数据的
+      
+    
+    </summary>
+    
+    
+      <category term="回归" scheme="https://hhh0hwz.github.io/categories/%E5%9B%9E%E5%BD%92/"/>
+    
+    
+      <category term="周志华" scheme="https://hhh0hwz.github.io/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>李宏毅笔记(1)</title>
+    <link href="https://hhh0hwz.github.io/2020/09/18/%E6%9D%8E%E5%AE%8F%E6%AF%85%E7%AC%94%E8%AE%B0-1/"/>
+    <id>https://hhh0hwz.github.io/2020/09/18/%E6%9D%8E%E5%AE%8F%E6%AF%85%E7%AC%94%E8%AE%B0-1/</id>
+    <published>2020-09-18T07:57:36.000Z</published>
+    <updated>2020-09-18T08:43:35.833Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="第一节课"><a href="#第一节课" class="headerlink" title="第一节课"></a>第一节课</h3><ul><li>机器学习就是自动找函式<ul><li>Regression: The output of the function is a <strong>scalar</strong></li><li>Binary Classification: Yes or No</li><li>Multi-class Classfication</li><li>Generation(生成):产生有结构的复杂东西</li></ul></li></ul><h3 id="第二节课"><a href="#第二节课" class="headerlink" title="第二节课"></a>第二节课</h3><h5 id="Regression"><a href="#Regression" class="headerlink" title="Regression"></a>Regression</h5><ul><li><p>Recommendation</p><p>$f(使用者A,商品B) = 购买可能性$</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;第一节课&quot;&gt;&lt;a href=&quot;#第一节课&quot; class=&quot;headerlink&quot; title=&quot;第一节课&quot;&gt;&lt;/a&gt;第一节课&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;机器学习就是自动找函式&lt;ul&gt;
+&lt;li&gt;Regression: The output of the functi
+      
+    
+    </summary>
+    
+    
+      <category term="ML" scheme="https://hhh0hwz.github.io/categories/ML/"/>
+    
+    
+      <category term="ML课程" scheme="https://hhh0hwz.github.io/tags/ML%E8%AF%BE%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>&#39;贝叶斯&#39;</title>
